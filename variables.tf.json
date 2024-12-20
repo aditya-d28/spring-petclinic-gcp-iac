@@ -39,6 +39,86 @@
                 "nullable": false,
                 "sensitive": false
             }
+        ],
+        "psql_server_1": [
+            {
+                "description": "Name of first PostgreSQL Server.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "psql_db_1": [
+            {
+                "description": "Name of first PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "psql_admin_user_name_1": [
+            {
+                "description": "Admin user name of first PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "admin_password_1": [
+            {
+                "description": "Password of admin user of first PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": true
+            }
+        ],
+        "psql_server_2": [
+            {
+                "description": "Name of second PostgreSQL Server.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "psql_db_2": [
+            {
+                "description": "Name of second PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "psql_admin_user_name_2": [
+            {
+                "description": "Admin user name of second PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "admin_password_2": [
+            {
+                "description": "Password of admin user of second PostgreSQL Database.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": true
+            }
+        ],
+        "gke_sa_id": [
+            {
+                "description": "The account id that is used to generate the service account email address and a stable unique id.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
+        ],
+        "gke_sa_name": [
+            {
+                "description": "The display name for the service account.",
+                "type": "string",
+                "nullable": false,
+                "sensitive": false
+            }
         ]
     }
 }

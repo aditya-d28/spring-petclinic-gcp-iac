@@ -1,0 +1,19 @@
+{
+    "output": {
+        "sa_id": {
+            "description": "An identifier for the service account.",
+            "sensitive": false,
+            "value": "${google_service_account.service_account.id}"
+        },
+        "sa_email": {
+            "description": "The e-mail address of the service account.",
+            "sensitive": false,
+            "value": "${google_service_account.service_account.email}"
+        },
+        "member": {
+            "description": "The Identity of the service account in the form serviceAccount:{email}.",
+            "sensitive": false,
+            "value": "${google_service_account.service_account.member}"
+        }
+    }
+}

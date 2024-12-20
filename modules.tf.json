@@ -10,7 +10,7 @@
         "crypto_key_algorithm": "EC_SIGN_P256_SHA256",
         "protection_level": null,
         "role": "${module.stackgen_1dc6a9f8-5c88-41f7-9dda-4015794f3b72.id}",
-        "members": ["user:adityadeshmukh281997@gmail.com"]
+        "members": ["${module.stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae.member}"]
       },
       "stackgen_e028fb84-ce37-54f0-9e0d-2f31c9ac840d": {
         "source": "./modules/google_storage_bucket",
@@ -19,7 +19,7 @@
         "bucket_public_access_prevention": "enforced",
         "force_destroy_bucket": null,
         "role": "${module.stackgen_7857d9bb-bf1d-4443-9de0-e23367638e4d.id}",
-        "members": ["user:adityadeshmukh281997@gmail.com"]
+        "members": ["${module.stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae.member}"]
       },
       "stackgen_1dc6a9f8-5c88-41f7-9dda-4015794f3b72": {
         "source": "./modules/google_project_iam_custom_role",
@@ -40,9 +40,15 @@
       "stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3": {
         "source": "./modules/google_compute_network",
         "gcp_project_id": "${var.gcp_project_id}",
+        "gcp_region": "${var.gcp_region}",
         "vpc_name": "${var.vpc_name}",
         "routing_mode": "REGIONAL",
-        "auto_create_subnetworks": false
+        "auto_create_subnetworks": false,
+        "ip_range_name": "psc-ip-range1",
+        "address_type": "INTERNAL",
+        "ip_prefix_length": 16,
+        "subnet_name": "k8s-subnet",
+        "subnet_cidr": "10.2.0.0/20"
       },
       "stackgen_c56101c6-3af6-5c6e-87b8-5b045c2029c1": {
         "source": "./modules/google_redis_instance",
@@ -57,7 +63,73 @@
             "day_of_week": "SUNDAY",
             "start_hour_utc": 2
           }
-        ]
+        ],
+        "psc_peering": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.psc_peering}"
+      },
+      "stackgen_90e0852d-ec7b-54b7-b540-8285e85c22b3": {
+        "source": "./modules/google_sql_database_instance",
+        "gcp_region": "${var.gcp_region}",
+        "psql_server_name": "${var.psql_server_1}",
+        "psql_database_name": "${var.psql_db_1}",
+        "administrator_login": "${var.psql_admin_user_name_1}",
+        "administrator_login_password": "${var.admin_password_1}",
+        "psql_version": "11",
+        "psql_tier": "db-f1-micro",
+        "psql_edition": "ENTERPRISE",
+        "storage_gb": 10,
+        "disk_autoresize_enabled": true,
+        "labels": {
+          "appstack": "spring-petclinic-azure-iac-2",
+          "component": "spring-petclinic-azure"
+        },
+        "psql_availability": "REGIONAL",
+        "enable_backup": true,
+        "backup_start_time": "00:00",
+        "enable_point_in_time_recovery": true,
+        "backup_retention_days": "7",
+        "public_network_access_enabled": false,
+        "network_id": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.id}",
+        "ssl_mode": "ALLOW_UNENCRYPTED_AND_ENCRYPTED",
+        "enable_psa": true,
+        "charset": "UTF8",
+        "collation": "en_US.UTF8",
+        "psc_peering": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.psc_peering}"
+      },
+      "stackgen_9b3eebdd-882a-526b-9ee9-33ecd1fc9edf": {
+        "source": "./modules/google_sql_database_instance",
+        "gcp_region": "${var.gcp_region}",
+        "psql_server_name": "${var.psql_server_2}",
+        "psql_database_name": "${var.psql_db_2}",
+        "administrator_login": "${var.psql_admin_user_name_2}",
+        "administrator_login_password": "${var.admin_password_2}",
+        "psql_version": "11",
+        "psql_tier": "db-f1-micro",
+        "psql_edition": "ENTERPRISE",
+        "storage_gb": 10,
+        "disk_autoresize_enabled": true,
+        "labels": {
+          "appstack": "spring-petclinic-azure-iac-2",
+          "component": "spring-petclinic-azure"
+        },
+        "psql_availability": "REGIONAL",
+        "enable_backup": true,
+        "backup_start_time": "00:00",
+        "enable_point_in_time_recovery": true,
+        "backup_retention_days": "7",
+        "public_network_access_enabled": false,
+        "network_id": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.id}",
+        "ssl_mode": "ALLOW_UNENCRYPTED_AND_ENCRYPTED",
+        "enable_psa": true,
+        "charset": "UTF8",
+        "collation": "en_US.UTF8",
+        "psc_peering": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.psc_peering}"
+      },
+      "stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae": {
+        "source": "./modules/google_service_account",
+        "gcp_project_id": "${var.gcp_project_id}",
+        "service_account_id": "${var.gke_sa_id}",
+        "service_account_name": "${var.gke_sa_name}",
+        "service_account_description": "Service Account for GKE Cluster"
       }
     }
 }
