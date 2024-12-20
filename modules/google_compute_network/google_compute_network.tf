@@ -6,3 +6,18 @@ resource "google_compute_network" "vpc_network_example" {
   routing_mode                              = var.routing_mode
   auto_create_subnetworks                   = var.auto_create_subnetworks
 }
+
+resource "google_compute_global_address" "private_ip_alloc" {
+  name          = var.ip_range_name
+  address_type  = var.address_type
+  network       = google_compute_network.vpc_network_example.name
+  purpose       = "VPC_PEERING"
+  prefix_length = var.ip_prefix_length
+}
+
+
+resource "google_service_networking_connection" "private_vpc_connection" {
+  network                 = google_compute_network.vpc_network_example.name
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.private_ip_alloc.name]
+}

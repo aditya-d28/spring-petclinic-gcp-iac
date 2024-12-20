@@ -35,6 +35,12 @@
                 "description": "Weekly maintenance window that is applied to resources covered by this policy.",
                 "type": "list"
             }
+        ],
+        "psc_peering": [
+            {
+                "description": "The name of the VPC Network Peering connection",
+                "type": "string"
+            }
         ]
     }
 }

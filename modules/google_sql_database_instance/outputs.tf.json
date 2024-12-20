@@ -1,0 +1,29 @@
+{
+    "output": {
+        "psql_server_link": {
+            "description" : "URI of the PostgreSQL Server.",
+            "sensitive": false,
+            "value" : "${google_sql_database_instance.psql_db_server.self_link}"
+        },
+        "psql_db_link": {
+            "description" : "URI of the PostgreSQL Database.",
+            "sensitive": false,
+            "value" : "${google_sql_database.psql_db.self_link}"
+        },
+        "psql_db_id": {
+            "description" : "ID of the PostgreSQL Database.",
+            "sensitive": false,
+            "value" : "${google_sql_database.psql_db.id}"
+        },
+        "psql_server_public_ip": {
+            "description" : "The first public (PRIMARY) IPv4 address assigned.",
+            "sensitive": false,
+            "value" : "${google_sql_database_instance.psql_db_server.public_ip_address}"
+        },
+        "psql_server_private_ip": {
+            "description" : "The first private (PRIVATE) IPv4 address assigned.",
+            "sensitive": false,
+            "value" : "${google_sql_database_instance.psql_db_server.private_ip_address}"
+        }
+    }
+}

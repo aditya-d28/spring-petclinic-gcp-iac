@@ -19,6 +19,11 @@
             "description": "URI of the VPC network.",
             "sensitive": false,
             "value": "${google_compute_network.vpc_network_example.self_link}"
+        },
+        "psc_peering": {
+            "description": "The name of the VPC Network Peering connection",
+            "sensitive": false,
+            "value": "${google_service_networking_connection.private_vpc_connection.peering}"
         }
     }
 }
