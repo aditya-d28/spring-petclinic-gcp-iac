@@ -1,0 +1,14 @@
+{
+    "output": {
+        "bucket_url": {
+            "description": "The Cloud Console URL of the storage bucket.",
+            "sensitive": false,
+            "value": "${google_storage_bucket.bucket_example.self_link}"
+        },
+        "bucket_uri": {
+            "description": "URI of the storage bucket.",
+            "sensitive": false,
+            "value": "${google_storage_bucket.bucket_example.url}"
+        }
+    }
+}

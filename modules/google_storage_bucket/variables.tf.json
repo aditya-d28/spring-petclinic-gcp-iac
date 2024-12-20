@@ -1,0 +1,36 @@
+{
+    "variable": {
+        "storage_bucket_name": [
+            {
+                "description": "The name of the storage bucket, it should be gloablly unique.",
+                "type": "string"
+            }
+        ],
+        "bucket_public_access_prevention": [
+            {
+                "default": "enforced",
+                "description": "Determine whether to enforce public access prevention on the bucket or inherit it from the organization policy",
+                "type": "string"
+            }
+        ],
+        "force_destroy_bucket": [
+            {
+                "default": true,
+                "description": "Boolean value to determine if the force deletion on buckets should be enabled or not.",
+                "type": "bool"
+            }
+        ],
+        "role": [
+            {
+                "description": "Role that should be assigned to the identities.",
+                "type": "string"
+            }
+        ],
+        "members": [
+            {
+                "description": "List of identities that will be granted access to the resource.",
+                "type": "list"
+            }
+        ]
+    }
+}

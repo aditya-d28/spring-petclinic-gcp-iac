@@ -1,0 +1,29 @@
+{
+    "output": {
+        "id": {
+            "description": "An identifier for the redis cache instance.",
+            "sensitive": false,
+            "value": "${google_redis_instance.redis_example.id}"
+        },
+        "host": {
+            "description": "Hostname or IP address of the exposed Redis endpoint used by clients to connect to the service.",
+            "sensitive": false,
+            "value": "${google_redis_instance.redis_example.host}"
+        },
+        "port": {
+            "description": "The port number of the exposed Redis endpoint",
+            "sensitive": false,
+            "value": "${google_redis_instance.redis_example.port}"
+        },
+        "read_endpoint": {
+            "description": "Hostname or IP address of the exposed readonly Redis endpoint. Standard tier only. Write requests must target 'host'.",
+            "sensitive": false,
+            "value": "${google_redis_instance.redis_example.read_endpoint}"
+        },
+        "read_endpoint_port": {
+            "description": "The port number of the exposed readonly redis endpoint. Standard tier only. Write requests should target 'port'.",
+            "sensitive": false,
+            "value": "${google_redis_instance.redis_example.read_endpoint_port}"
+        }
+    }
+}

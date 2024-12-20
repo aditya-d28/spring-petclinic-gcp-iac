@@ -1,0 +1,40 @@
+{
+    "variable": {
+        "cache_name": [
+            {
+                "description": "Name of the redis cache instance",
+                "type": "string"
+            }
+        ],
+        "cache_tier": [
+            {
+                "description": "The service tier of the instance. Possible values are BASIC, STANDARD_HA.",
+                "type": "string"
+            }
+        ],
+        "cache_capacity": [
+            {
+                "description": "Redis memory size in GiB.",
+                "type": "number"
+            }
+        ],
+        "network_id": [
+            {
+                "description": "The full name of the Google Compute Engine network to which the instance is connected.",
+                "type": "string"
+            }
+        ],
+        "transit_encryption_mode": [
+            {
+                "description": "The TLS mode of the Redis instance, If not provided, TLS is disabled for the instance.",
+                "type": "string"
+            }
+        ],
+        "maintenance_schedule": [
+            {
+                "description": "Weekly maintenance window that is applied to resources covered by this policy.",
+                "type": "list"
+            }
+        ]
+    }
+}

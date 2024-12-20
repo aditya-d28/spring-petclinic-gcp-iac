@@ -1,0 +1,28 @@
+{
+    "variable": {
+        "role_id": [
+            {
+                "description": "The camel case role id to use for this role. Cannot contain hyphen.",
+                "type": "string"
+            }
+        ],
+        "title": [
+            {
+                "description": "A human-readable title for the role.",
+                "type": "string"
+            }
+        ],
+        "description": [
+            {
+                "description": "A human-readable description for the role.",
+                "type": "string"
+            }
+        ],
+        "permissions": [
+            {
+                "description": "The names of the permissions this role grants when bound in an IAM policy.",
+                "type": "list"
+            }
+        ]
+    }
+}

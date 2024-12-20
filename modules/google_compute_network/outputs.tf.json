@@ -1,0 +1,24 @@
+{
+    "output": {
+        "id": {
+            "description": "An identifier for the VPC network.",
+            "sensitive": false,
+            "value": "${google_compute_network.vpc_network_example.id}"
+        },
+        "gateway_ipv4": {
+            "description": "The gateway address for default routing out of the network. This value is selected by GCP.",
+            "sensitive": false,
+            "value": "${google_compute_network.vpc_network_example.gateway_ipv4}"
+        },
+        "numeric_id": {
+            "description": "An unique identifier for the VPC network.",
+            "sensitive": false,
+            "value": "${google_compute_network.vpc_network_example.numeric_id}"
+        },
+        "self_link": {
+            "description": "URI of the VPC network.",
+            "sensitive": false,
+            "value": "${google_compute_network.vpc_network_example.self_link}"
+        }
+    }
+}

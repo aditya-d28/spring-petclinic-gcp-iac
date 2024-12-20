@@ -1,0 +1,19 @@
+{
+  "output": {
+    "key_ring_id": {
+      "description": "The unique identifier of the KMS key ring.",
+      "sensitive": false,
+      "value": "${google_kms_key_ring.keyring_example.id}"
+    },
+    "key_id": {
+      "description": "The unique identifier of the KMS crypto key",
+      "sensitive": false,
+      "value": "${google_kms_crypto_key.key_example.id}"
+    },
+    "version": {
+      "description": "A copy of the primary Crypto Key Version.",
+      "sensitive": false,
+      "value": "${google_kms_crypto_key.key_example.primary}"
+    }
+  }
+}

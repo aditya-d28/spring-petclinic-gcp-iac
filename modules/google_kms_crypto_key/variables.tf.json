@@ -1,0 +1,55 @@
+{
+    "variable": {
+        "key_ring_name": [
+            {
+                "description": "The name of the KMS Key Ring where this key will be created.",
+                "type": "string"
+            }
+        ],
+        "crypto_key_name": [
+            {
+                "description": "The name of the KMS crypto key.",
+                "type": "string"
+            }
+        ],
+        "crypto_key_purpose": [
+            {   
+                "default": "ENCRYPT_DECRYPT",
+                "description": "The immutable purpose of this CryptoKey.",
+                "type": "string"
+            }
+        ],
+        "crypto_key_rotation_period": [
+            {
+                "default": "7776000s",
+                "description": "The rotation period has the format of a decimal number with up to 9 fractional digits, followed by the letter s (seconds). It must be greater than a day (ie, 86400).",
+                "type": "string"
+            }
+        ],
+        "crypto_key_algorithm": [
+            {
+                "description": "The algorithm of the Crypto Key Version",
+                "type": "string"
+            }
+        ],
+        "protection_level": [
+            {
+                "default": "SOFTWARE",
+                "description": "Protection level determines how cryptographic operations are performed.",
+                "type": "string"
+            }
+        ],
+        "role": [
+            {
+                "description": "Role that should be assigned to the identities.",
+                "type": "string"
+            }
+        ],
+        "members": [
+            {
+                "description": "List of identities that will be granted access to the resource.",
+                "type": "list"
+            }
+        ]
+    }
+}

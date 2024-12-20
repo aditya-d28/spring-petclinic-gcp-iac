@@ -1,0 +1,9 @@
+{
+    "output": {
+        "id": {
+            "description": "An identifier for the resource, this field can be used as a reference in other resources such as IAM role bindings.",
+            "sensitive": false,
+            "value": "${google_project_iam_custom_role.role_example.id}"
+        }
+    }
+}

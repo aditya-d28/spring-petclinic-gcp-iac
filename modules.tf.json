@@ -1,0 +1,63 @@
+{
+    "module": {
+      "stackgen_1cee0b8c-b9be-595e-aa25-cc334fcf3b64": {
+        "source": "./modules/google_kms_crypto_key",
+        "gcp_region": "${var.gcp_region}",
+        "key_ring_name": "${var.key_ring_name}",
+        "crypto_key_name": "spring-petclinic-init",
+        "crypto_key_purpose": "ASYMMETRIC_SIGN",
+        "crypto_key_rotation_period": null,
+        "crypto_key_algorithm": "EC_SIGN_P256_SHA256",
+        "protection_level": null,
+        "role": "${module.stackgen_1dc6a9f8-5c88-41f7-9dda-4015794f3b72.id}",
+        "members": ["user:adityadeshmukh281997@gmail.com"]
+      },
+      "stackgen_e028fb84-ce37-54f0-9e0d-2f31c9ac840d": {
+        "source": "./modules/google_storage_bucket",
+        "gcp_region": "${var.gcp_region}",
+        "storage_bucket_name": "${var.storage_bucket_name}",
+        "bucket_public_access_prevention": "enforced",
+        "force_destroy_bucket": null,
+        "role": "${module.stackgen_7857d9bb-bf1d-4443-9de0-e23367638e4d.id}",
+        "members": ["user:adityadeshmukh281997@gmail.com"]
+      },
+      "stackgen_1dc6a9f8-5c88-41f7-9dda-4015794f3b72": {
+        "source": "./modules/google_project_iam_custom_role",
+        "role_id": "cryptoKeyUser",
+        "title": "Crypto Key User",
+        "gcp_project_id": "${var.gcp_project_id}",
+        "description": "A custom role for the crypto key user who can read it and use it for decryption.",
+        "permissions": ["cloudkms.cryptoKeyVersions.useToDecrypt", "cloudkms.cryptoKeys.get", "cloudkms.cryptoKeyVersions.viewPublicKey"]
+      },
+      "stackgen_7857d9bb-bf1d-4443-9de0-e23367638e4d": {
+        "source": "./modules/google_project_iam_custom_role",
+        "role_id": "storageBucketUser",
+        "title": "Storage Bucket User",
+        "gcp_project_id": "${var.gcp_project_id}",
+        "description": "A custom role for the storage bucket user who can read and delete objects in storage bucket.",
+        "permissions": ["storage.objects.get", "storage.objects.list", "storage.objects.delete"]
+      },
+      "stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3": {
+        "source": "./modules/google_compute_network",
+        "gcp_project_id": "${var.gcp_project_id}",
+        "vpc_name": "${var.vpc_name}",
+        "routing_mode": "REGIONAL",
+        "auto_create_subnetworks": false
+      },
+      "stackgen_c56101c6-3af6-5c6e-87b8-5b045c2029c1": {
+        "source": "./modules/google_redis_instance",
+        "cache_name": "${var.cache_name}",
+        "cache_tier": "BASIC",
+        "cache_capacity": "${var.cache_capacity}",
+        "gcp_region": "${var.gcp_region}",
+        "network_id": "${module.stackgen_76da7cb4-51f4-50e6-aae5-618d34eae8b3.id}",
+        "transit_encryption_mode": "SERVER_AUTHENTICATION",
+        "maintenance_schedule": [
+          {
+            "day_of_week": "SUNDAY",
+            "start_hour_utc": 2
+          }
+        ]
+      }
+    }
+}
