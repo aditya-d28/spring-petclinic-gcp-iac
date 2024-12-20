@@ -112,3 +112,16 @@ output "google_sql_database_instance_psqlserver2_psql_server_private_ip"{
     value = module.stackgen_9b3eebdd-882a-526b-9ee9-33ecd1fc9edf.psql_server_private_ip
     sensitive = false
 }
+
+output "google_service_account_gke_service_account_sa_id"{
+    value = module.stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae.sa_id
+    sensitive = false
+}
+output "google_service_account_gke_service_account_sa_email"{
+    value = module.stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae.sa_email
+    sensitive = false
+}
+output "google_service_account_gke_service_account_member"{
+    value = module.stackgen_241312ab_f8d0_402d_87a9_26a50ede16ae.member
+    sensitive = false
+}

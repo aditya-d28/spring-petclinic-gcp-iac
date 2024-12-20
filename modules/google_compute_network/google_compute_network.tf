@@ -21,3 +21,10 @@ resource "google_service_networking_connection" "private_vpc_connection" {
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.private_ip_alloc.name]
 }
+
+resource "google_compute_subnetwork" "subnet_example" {
+  name          = var.subnet_name
+  ip_cidr_range = var.subnet_cidr
+  region        = var.gcp_region
+  network       = google_compute_network.vpc_network_example.id
+}
